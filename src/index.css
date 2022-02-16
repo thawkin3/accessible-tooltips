@@ -28,8 +28,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   color: #ff1493;
-  background: rgba(255, 20, 147, 0.05)
-;}
+  background: rgba(255, 20, 147, 0.05);
+}
+
+hr {
+  margin: 1rem 0;
+}
 
 .button {
   padding: 0.5rem 0.75rem;

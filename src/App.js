@@ -1,6 +1,8 @@
 import React from 'react';
 import { TitleAttributeBad } from './01_title_attribute/TitleAttributeBad';
 import { TitleAttributeGood } from './01_title_attribute/TitleAttributeGood';
+import { ShortContentHoverFocusBad } from './02_short_content_hover_focus/ShortContentBad';
+import { ShortContentHoverFocusGood } from './02_short_content_hover_focus/ShortContentGood';
 import './App.css';
 
 export const App = () => (
@@ -15,7 +17,13 @@ export const App = () => (
     <h3>Good Example</h3>
     <TitleAttributeGood />
     <hr />
-    <h2>Short Content</h2>
+    <h2>Short Content (Hover/Focus)</h2>
+    <h3>Bad Example</h3>
+    <ShortContentHoverFocusBad />
+    <h3>Good Example</h3>
+    <ShortContentHoverFocusGood />
+    <hr />
+    <h2>Short Content (Click/Keypress)</h2>
     <h3>Bad Example</h3>
     <p>TODO</p>
     <h3>Good Example</h3>
