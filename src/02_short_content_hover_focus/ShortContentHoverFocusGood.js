@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import QuestionMarkIcon from '../questionMarkIcon.png';
 import '../Tooltip.css';
 
@@ -16,11 +16,19 @@ export const ShortContentHoverFocusGood = () => {
 const Tooltip = ({ children, content }) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  const handleTooltipTriggerKeyDown = e => {
-    if (e.key === 'Escape') {
-      setShowTooltip(false);
-    }
-  };
+  useEffect(() => {
+    const closeTooltipOnEscapeKeyDown = e => {
+      if (e.key === 'Escape') {
+        setShowTooltip(false);
+      }
+    };
+
+    document.addEventListener('keydown', closeTooltipOnEscapeKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', closeTooltipOnEscapeKeyDown);
+    };
+  });
 
   return (
     <span className="tooltipTriggerContainer">
@@ -30,7 +38,6 @@ const Tooltip = ({ children, content }) => {
         onMouseLeave={() => setShowTooltip(false)}
         onFocus={() => setShowTooltip(true)}
         onBlur={() => setShowTooltip(false)}
-        onKeyDown={handleTooltipTriggerKeyDown}
         aria-describedby="tooltip-content"
       >
         {children}
@@ -43,5 +50,3 @@ const Tooltip = ({ children, content }) => {
     </span>
   );
 };
-
-// TODO: Should the Escape key event listener be put on the document rather than the trigger button only?

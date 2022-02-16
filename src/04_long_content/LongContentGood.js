@@ -33,18 +33,18 @@ const Tooltip = ({ children, content }) => {
   const tooltipTriggerContainerRef = useRef(null);
 
   useEffect(() => {
-    const handleClickOutside = e => {
-      if (!tooltipTriggerContainerRef.current.contains(e.target)) {
+    const closeTooltipOnEscapeKeyDown = e => {
+      if (e.key === 'Escape') {
         setShowTooltip(false);
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener('keydown', closeTooltipOnEscapeKeyDown);
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('keydown', closeTooltipOnEscapeKeyDown);
     };
-  }, [setShowTooltip]);
+  });
 
   const toggleTooltip = () => setShowTooltip(showTooltip => !showTooltip);
 
@@ -55,9 +55,6 @@ const Tooltip = ({ children, content }) => {
       case 'Enter':
         e.preventDefault();
         toggleTooltip();
-        break;
-      case 'Escape':
-        setShowTooltip(false);
         break;
       default:
       // do nothing
@@ -89,5 +86,3 @@ const Tooltip = ({ children, content }) => {
 //   attributes and just allow the screen reader user to navigate to this content
 //   when they want to read it. That way they don't get blasted with a couple paragraphs
 //   of text being read by them.
-
-// TODO: Should the Escape key event listener be put on the document rather than the trigger button only?

@@ -46,6 +46,20 @@ const Tooltip = ({ children, content }) => {
     };
   }, [setShowTooltip]);
 
+  useEffect(() => {
+    const closeTooltipOnEscapeKeyDown = e => {
+      if (e.key === 'Escape') {
+        setShowTooltip(false);
+      }
+    };
+
+    document.addEventListener('keydown', closeTooltipOnEscapeKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', closeTooltipOnEscapeKeyDown);
+    };
+  });
+
   const toggleTooltip = () => setShowTooltip(showTooltip => !showTooltip);
 
   const handleTooltipTriggerKeyDown = e => {
@@ -55,9 +69,6 @@ const Tooltip = ({ children, content }) => {
       case 'Enter':
         e.preventDefault();
         toggleTooltip();
-        break;
-      case 'Escape':
-        setShowTooltip(false);
         break;
       default:
       // do nothing
@@ -89,5 +100,3 @@ const Tooltip = ({ children, content }) => {
     </span>
   );
 };
-
-// TODO: Should the Escape key event listener be put on the document rather than the trigger button only?
