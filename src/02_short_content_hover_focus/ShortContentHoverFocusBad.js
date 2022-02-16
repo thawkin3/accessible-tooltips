@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import QuestionMarkIcon from '../questionMarkIcon.png';
-import './Tooltip.css';
+import '../Tooltip.css';
 
 export const ShortContentHoverFocusBad = () => {
   return (

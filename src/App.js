@@ -1,8 +1,10 @@
 import React from 'react';
 import { TitleAttributeBad } from './01_title_attribute/TitleAttributeBad';
 import { TitleAttributeGood } from './01_title_attribute/TitleAttributeGood';
-import { ShortContentHoverFocusBad } from './02_short_content_hover_focus/ShortContentBad';
-import { ShortContentHoverFocusGood } from './02_short_content_hover_focus/ShortContentGood';
+import { ShortContentHoverFocusBad } from './02_short_content_hover_focus/ShortContentHoverFocusBad';
+import { ShortContentHoverFocusGood } from './02_short_content_hover_focus/ShortContentHoverFocusGood';
+import { ShortContentClickKeypressBad } from './03_short_content_click_keypress/ShortContentClickKeypressBad';
+import { ShortContentClickKeypressGood } from './03_short_content_click_keypress/ShortContentClickKeypressGood';
 import './App.css';
 
 export const App = () => (
@@ -25,9 +27,9 @@ export const App = () => (
     <hr />
     <h2>Short Content (Click/Keypress)</h2>
     <h3>Bad Example</h3>
-    <p>TODO</p>
+    <ShortContentClickKeypressBad />
     <h3>Good Example</h3>
-    <p>TODO</p>
+    <ShortContentClickKeypressGood />
     <hr />
     <h2>Long Content</h2>
     <h3>Bad Example</h3>

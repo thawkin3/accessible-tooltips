@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import QuestionMarkIcon from '../questionMarkIcon.png';
-import './Tooltip.css';
+import '../Tooltip.css';
 
 export const ShortContentHoverFocusGood = () => {
   return (
@@ -16,6 +16,12 @@ export const ShortContentHoverFocusGood = () => {
 const Tooltip = ({ children, content }) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
+  const handleTooltipTriggerKeyDown = e => {
+    if (e.key === 'Escape') {
+      setShowTooltip(false);
+    }
+  };
+
   return (
     <span className="tooltipTriggerContainer">
       <span
@@ -24,6 +30,7 @@ const Tooltip = ({ children, content }) => {
         onMouseLeave={() => setShowTooltip(false)}
         onFocus={() => setShowTooltip(true)}
         onBlur={() => setShowTooltip(false)}
+        onKeyDown={handleTooltipTriggerKeyDown}
         aria-describedby="tooltip-content"
       >
         {children}
