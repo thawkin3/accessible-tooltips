@@ -42,6 +42,7 @@ const Tooltip = ({ children, content }) => {
 };
 
 // NOTES:
-// Works well for mouse users to click
+// Works well for mouse users to click to show or hide the tooltip
+// You can click anywhere outside the tooltip content or trigger icon to close the tooltip
 // Does not work for keyboard users because you can't focus the icon
-// Does not work for screen reader users because the tooltip content is not read
+// Does not work for screen reader users because you can't focus the icon

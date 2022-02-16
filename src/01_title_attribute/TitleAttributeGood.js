@@ -5,3 +5,6 @@ export const TitleAttributeGood = () => (
     attribute for tooltips that work for everyone.
   </p>
 );
+
+// NOTES:
+// The title attribute has been around since 1993 and still isn't accessible!

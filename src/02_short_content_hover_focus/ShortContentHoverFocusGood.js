@@ -50,3 +50,11 @@ const Tooltip = ({ children, content }) => {
     </span>
   );
 };
+
+// NOTES:
+// Works well for mouse users on mouseenter and mouseleave
+// Works well for keyboard users on focus and blur due to the use of the `tabIndex="0"`
+// Works well for screen reader users due to the use of the `aria-describedby` attribute
+// No need to use the `aria-expanded` attribute since it will always be open when the screen reader gets to the trigger icon
+// No need to use the `role="button"` because this is not actually a clickable button
+// You can also dismiss the tooltip by pressing the Escape key

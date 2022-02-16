@@ -30,6 +30,6 @@ const Tooltip = ({ children, content }) => {
 };
 
 // NOTES:
-// Works well for mouse users to hover
+// Works well for mouse users on mouseenter and mouseleave
 // Does not work for keyboard users because you can't focus the icon
-// Does not work for screen reader users because the tooltip content is not read
+// Does not work for screen reader users because you can't focus the icon

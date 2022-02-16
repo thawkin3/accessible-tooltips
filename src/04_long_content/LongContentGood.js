@@ -77,6 +77,15 @@ const Tooltip = ({ children, content }) => {
   );
 };
 
+// NOTES:
+// Works well for mouse users to click to show or hide the tooltip
+// You can click anywhere outside the tooltip content or trigger icon to close the tooltip
+// Works well for keyboard users on Space/Enter keydown due to the use of the `tabIndex="0"`
+// Works well for screen reader users due to NOT USING the `aria-describedby` and `aria-live` attributes so all the text IS NOT read all at once
+// We use the `aria-expanded` attribute to communicate whether the tooltip is hidden or shown
+// We use the `role="button"` because this is a clickable button
+// You can also dismiss the tooltip by pressing the Escape key
+
 // TODO: Confirm if this is the best approach for long content.
 //   Right now I've chosen to remove the `aria-live` and the `aria-describedby`
 //   attributes and just allow the screen reader user to navigate to this content

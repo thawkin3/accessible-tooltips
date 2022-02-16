@@ -16,4 +16,4 @@ export const TitleAttributeBad = () => (
 // NOTES:
 // Works well for mouse users to hover
 // Works well for screen reader users due to the use of the alt attribute
-// Does not work for keyboard users
+// Does not work for keyboard users because the title tooltip does not appear on focus

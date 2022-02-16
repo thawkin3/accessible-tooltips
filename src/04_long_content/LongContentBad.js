@@ -96,3 +96,12 @@ const Tooltip = ({ children, content }) => {
     </span>
   );
 };
+
+// NOTES:
+// Works well for mouse users to click to show or hide the tooltip
+// You can click anywhere outside the tooltip content or trigger icon to close the tooltip
+// Works well for keyboard users on Space/Enter keydown due to the use of the `tabIndex="0"`
+// DOES NOT work well for screen reader users due to the use of the `aria-describedby` and `aria-live` attributes that read everything to you
+// We use the `aria-expanded` attribute to communicate whether the tooltip is hidden or shown
+// We use the `role="button"` because this is a clickable button
+// You can also dismiss the tooltip by pressing the Escape key
