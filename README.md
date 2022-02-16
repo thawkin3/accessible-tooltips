@@ -1,6 +1,6 @@
 # Accessible Card Components
 
-This project is meant to teach software engineers how to create accessible tooltips in React. It includes good examples and bad examples.
+This project is meant to teach software engineers how to create accessible tooltips in React. It includes good examples and bad examples. [View the demo app here.](http://tylerhawkins.info/accessible-tooltips/build/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
