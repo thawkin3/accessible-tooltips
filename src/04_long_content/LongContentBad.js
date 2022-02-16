@@ -63,15 +63,11 @@ const Tooltip = ({ children, content }) => {
   const toggleTooltip = () => setShowTooltip(showTooltip => !showTooltip);
 
   const handleTooltipTriggerKeyDown = e => {
-    switch (e.key) {
-      case 'Space':
-      case ' ':
-      case 'Enter':
-        e.preventDefault();
-        toggleTooltip();
-        break;
-      default:
-      // do nothing
+    const clickInteractionKeys = ['Space', ' ', 'Enter'];
+
+    if (clickInteractionKeys.includes(e.key)) {
+      e.preventDefault();
+      toggleTooltip();
     }
   };
 
