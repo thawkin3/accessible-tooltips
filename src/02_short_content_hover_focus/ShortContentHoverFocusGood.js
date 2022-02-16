@@ -43,3 +43,5 @@ const Tooltip = ({ children, content }) => {
     </span>
   );
 };
+
+// TODO: Should the Escape key event listener be put on the document rather than the trigger button only?

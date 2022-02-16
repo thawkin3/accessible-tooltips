@@ -22,3 +22,4 @@ In the project directory, you can run:
 - [Problems with Using the Title Attribute](https://www.tpgi.com/using-the-html-title-attribute-updated/)
 - [Use of the Title Attribute is Officially Discouraged](https://html.spec.whatwg.org/multipage/dom.html#the-title-attribute)
 - [MDN - role="tooltip"](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role)
+- [Tooltips in the Time of WCAG 2.1](https://sarahmhigley.com/writing/tooltips-in-wcag-21/)

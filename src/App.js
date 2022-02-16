@@ -5,6 +5,8 @@ import { ShortContentHoverFocusBad } from './02_short_content_hover_focus/ShortC
 import { ShortContentHoverFocusGood } from './02_short_content_hover_focus/ShortContentHoverFocusGood';
 import { ShortContentClickKeypressBad } from './03_short_content_click_keypress/ShortContentClickKeypressBad';
 import { ShortContentClickKeypressGood } from './03_short_content_click_keypress/ShortContentClickKeypressGood';
+import { LongContentBad } from './04_long_content/LongContentBad';
+import { LongContentGood } from './04_long_content/LongContentGood';
 import './App.css';
 
 export const App = () => (
@@ -33,9 +35,9 @@ export const App = () => (
     <hr />
     <h2>Long Content</h2>
     <h3>Bad Example</h3>
-    <p>TODO</p>
+    <LongContentBad />
     <h3>Good Example</h3>
-    <p>TODO</p>
+    <LongContentGood />
     <hr />
     <h2>Interactive Content</h2>
     <h3>Bad Example</h3>
