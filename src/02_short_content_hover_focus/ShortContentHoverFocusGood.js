@@ -36,7 +36,7 @@ const Tooltip = ({ children, content }) => {
         {children}
       </span>
       {showTooltip && (
-        <div className="tooltipContainer" id="tooltip-content">
+        <div className="tooltipContainer" id="tooltip-content" role="tooltip">
           {content}
         </div>
       )}

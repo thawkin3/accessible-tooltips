@@ -56,12 +56,18 @@ const Tooltip = ({ children, content }) => {
         role="button"
         onClick={toggleTooltip}
         onKeyDown={handleTooltipTriggerKeyDown}
+        aria-expanded={showTooltip}
         aria-describedby="tooltip-content"
       >
         {children}
       </span>
       {showTooltip && (
-        <div className="tooltipContainer" id="tooltip-content">
+        <div
+          className="tooltipContainer"
+          id="tooltip-content"
+          role="tooltip"
+          aria-live="polite"
+        >
           {content}
         </div>
       )}

@@ -21,3 +21,4 @@ In the project directory, you can run:
 - [SVGs and Title Attributes](http://web-accessibility.carnegiemuseums.org/code/svg/)
 - [Problems with Using the Title Attribute](https://www.tpgi.com/using-the-html-title-attribute-updated/)
 - [Use of the Title Attribute is Officially Discouraged](https://html.spec.whatwg.org/multipage/dom.html#the-title-attribute)
+- [MDN - role="tooltip"](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role)
