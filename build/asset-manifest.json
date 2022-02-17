@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/accessible-tooltips/build/static/css/main.01b24628.chunk.css",
-    "main.js": "/accessible-tooltips/build/static/js/main.6fb61af8.chunk.js",
-    "main.js.map": "/accessible-tooltips/build/static/js/main.6fb61af8.chunk.js.map",
+    "main.js": "/accessible-tooltips/build/static/js/main.3c680740.chunk.js",
+    "main.js.map": "/accessible-tooltips/build/static/js/main.3c680740.chunk.js.map",
     "runtime-main.js": "/accessible-tooltips/build/static/js/runtime-main.927a6ff3.js",
     "runtime-main.js.map": "/accessible-tooltips/build/static/js/runtime-main.927a6ff3.js.map",
     "static/js/2.c1f3a7f2.chunk.js": "/accessible-tooltips/build/static/js/2.c1f3a7f2.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.927a6ff3.js",
     "static/js/2.c1f3a7f2.chunk.js",
     "static/css/main.01b24628.chunk.css",
-    "static/js/main.6fb61af8.chunk.js"
+    "static/js/main.3c680740.chunk.js"
   ]
 }
