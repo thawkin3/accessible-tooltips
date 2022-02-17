@@ -33,6 +33,20 @@ const Tooltip = ({ children, content }) => {
   const tooltipTriggerContainerRef = useRef(null);
 
   useEffect(() => {
+    const handleClickOutside = e => {
+      if (!tooltipTriggerContainerRef.current.contains(e.target)) {
+        setShowTooltip(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [setShowTooltip]);
+
+  useEffect(() => {
     const closeTooltipOnEscapeKeyDown = e => {
       if (e.key === 'Escape') {
         setShowTooltip(false);

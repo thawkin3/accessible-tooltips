@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import FocusTrap from 'focus-trap-react';
 import QuestionMarkIcon from '../questionMarkIcon.png';
 import '../Tooltip.css';
@@ -43,23 +43,14 @@ const Tooltip = ({
   lightBackground = false,
 }) => {
   const [showTooltip, setShowTooltip] = useState(false);
-  const tooltipTriggerContainerRef = useRef(null);
   const tooltipTriggerButton = useRef(null);
 
-  useEffect(() => {
-    const closeTooltipOnEscapeKeyDown = e => {
-      if (e.key === 'Escape') {
-        setShowTooltip(false);
-        tooltipTriggerButton.current.focus();
-      }
-    };
-
-    document.addEventListener('keydown', closeTooltipOnEscapeKeyDown);
-
-    return () => {
-      document.removeEventListener('keydown', closeTooltipOnEscapeKeyDown);
-    };
-  });
+  const closeTooltipModalOnEscapeKeyDown = e => {
+    if (e.key === 'Escape') {
+      setShowTooltip(false);
+      tooltipTriggerButton.current.focus();
+    }
+  };
 
   const toggleTooltip = () => setShowTooltip(showTooltip => !showTooltip);
 
@@ -78,7 +69,7 @@ const Tooltip = ({
   };
 
   return (
-    <span className="tooltipTriggerContainer" ref={tooltipTriggerContainerRef}>
+    <span className="tooltipTriggerContainer">
       <span
         tabIndex="0"
         role="button"
@@ -103,6 +94,7 @@ const Tooltip = ({
               id="tooltip-content"
               role="dialog"
               aria-modal="true"
+              onKeyDown={closeTooltipModalOnEscapeKeyDown}
             >
               <button
                 className="tooltipCloseIconButton button outline"
