@@ -47,12 +47,12 @@ export const App = () => (
       <h2>Long Content</h2>
       <h3>Bad Example</h3>
       <LongContentBad />
-      <h3>Good Example</h3>
+      <h3>Good Example (Under Certain Conditions!)</h3>
       <LongContentGood />
     </Section>
 
     <Section>
-      <h2>Interactive Content</h2>
+      <h2>Interactive Content (Tooltip Modal)</h2>
       <h3>Bad Example</h3>
       <InteractiveContentBad />
       <h3>Good Example</h3>
@@ -76,7 +76,10 @@ export const App = () => (
         Short tooltips may appear on hover/focus or on click/keypress. That
         feels like a design preference decision.
       </li>
-      <li>In general, long tooltips should be avoided.</li>
+      <li>
+        In general, long tooltips should be avoided. If you do use a tooltip
+        with lengthy content, it may be a good idea to treat it like a modal.
+      </li>
       <li>
         If the tooltip has interactive content, it should be treated like a
         modal, regardless of length.

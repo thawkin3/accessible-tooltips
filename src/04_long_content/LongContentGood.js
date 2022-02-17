@@ -100,6 +100,14 @@ const Tooltip = ({ children, content }) => {
 // We use the `role="button"` because this is a clickable button
 // You can also dismiss the tooltip by pressing the Escape key
 
+// IMPORTANT DISCLAIMER:
+// This approach happens to work because the tooltip content is rendered as the next
+// element in the DOM after the tooltip trigger button. But if you used something like
+// a React portal and/or rendered into a tooltip container element at the top or bottom
+// of the DOM, the user would have to navigate around the page with the screen reader
+// for awhile until they find the tooltip content. So a better approach of using a modal
+// is outlined below.
+
 // ALTERNATIVE APPROACH:
 // One alternative to just removing the `aria-describedby` and `aria-live` attributes
 // would be to do that and also turn the tooltip content into a modal with all the
