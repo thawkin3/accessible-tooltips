@@ -4,6 +4,15 @@ This project is meant to teach software engineers how to create accessible toolt
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Key Takeaways
+
+1. There are many different ways that tooltips can be used! Be sure to think about your use case before implementing a solution.
+2. Don't use the <code>title</code> attribute for tooltips.
+3. In general, tooltips should contain short, non-essential, supplemental content.
+4. Short tooltips may appear on hover/focus or on click/keypress. That feels like a design preference decision.
+5. In general, long tooltips should be avoided.</li>
+6. If the tooltip has interactive content, it should be treated like a modal, regardless of length.
+
 ## Available Scripts
 
 In the project directory, you can run:
