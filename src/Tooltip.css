@@ -15,6 +15,18 @@
   max-width: max-content;
 }
 
+.tooltipContainer.lightBackground {
+  background: #fff;
+  color: #000;
+  border: solid 0.0625rem #000;
+}
+
+.tooltipContainer.tooltipContainerModal {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .tooltipContainer::before {
   content: '';
   position: absolute;
@@ -31,4 +43,23 @@
 
 .tooltipContainer p:last-child {
   margin-bottom: 0;
+}
+
+.tooltipContainer.tooltipContainerModal p {
+  margin-top: 0;
+}
+
+.tooltipCloseIconButton {
+  align-self: flex-end;
+  margin-right: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tooltipBackgroundOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
 }

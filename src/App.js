@@ -8,6 +8,8 @@ import { ShortContentClickKeypressBad } from './03_short_content_click_keypress/
 import { ShortContentClickKeypressGood } from './03_short_content_click_keypress/ShortContentClickKeypressGood';
 import { LongContentBad } from './04_long_content/LongContentBad';
 import { LongContentGood } from './04_long_content/LongContentGood';
+import { InteractiveContentBad } from './05_interactive_content/InteractiveContentBad';
+import { InteractiveContentGood } from './05_interactive_content/InteractiveContentGood';
 import './App.css';
 
 export const App = () => (
@@ -52,9 +54,33 @@ export const App = () => (
     <Section>
       <h2>Interactive Content</h2>
       <h3>Bad Example</h3>
-      <p>TODO</p>
+      <InteractiveContentBad />
       <h3>Good Example</h3>
-      <p>TODO</p>
+      <InteractiveContentGood />
     </Section>
+
+    <h2>Key Takeaways</h2>
+    <ol>
+      <li>
+        There are many different ways that tooltips can be used! Be sure to
+        think about your use case before implementing a solution.
+      </li>
+      <li>
+        Don't use the <code>title</code> attribute for tooltips.
+      </li>
+      <li>
+        In general, tooltips should contain short, non-essential, supplemental
+        content.
+      </li>
+      <li>
+        Short tooltips may appear on hover/focus or on click/keypress. That
+        feels like a design preference decision.
+      </li>
+      <li>In general, long tooltips should be avoided.</li>
+      <li>
+        If the tooltip has interactive content, it should be treated like a
+        modal, regardless of length.
+      </li>
+    </ol>
   </main>
 );

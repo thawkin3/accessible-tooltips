@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
+import FocusTrap from 'focus-trap-react';
 import QuestionMarkIcon from '../questionMarkIcon.png';
 import '../Tooltip.css';
 
-export const LongContentGood = () => {
+export const InteractiveContentGood = () => {
   const tooltipContent = (
     <>
       <p>
@@ -11,9 +12,16 @@ export const LongContentGood = () => {
         paragraphs.
       </p>
       <p>
-        It's a lot to take in! Wouldn't it be awful if the screen reader just
-        read this all to you at once? That could be pretty overwhelming. No one
-        wants that.
+        This tooltip has even more content for you! You can click the link below
+        to learn more.
+      </p>
+      <p>
+        <a
+          className="button outline buttonLink"
+          href="http://tylerhawkins.info/accessible-tooltips/build/"
+        >
+          Learn More About Tooltips
+        </a>
       </p>
     </>
   );
@@ -21,21 +29,28 @@ export const LongContentGood = () => {
   return (
     <div>
       Here's a sentence that may need some clarification.{' '}
-      <Tooltip content={tooltipContent}>
+      <Tooltip content={tooltipContent} lightBackground isModal>
         <img src={QuestionMarkIcon} height="12" width="12" alt="Help" />
       </Tooltip>
     </div>
   );
 };
 
-const Tooltip = ({ children, content }) => {
+const Tooltip = ({
+  children,
+  content,
+  isModal = false,
+  lightBackground = false,
+}) => {
   const [showTooltip, setShowTooltip] = useState(false);
   const tooltipTriggerContainerRef = useRef(null);
+  const tooltipTriggerButton = useRef(null);
 
   useEffect(() => {
     const closeTooltipOnEscapeKeyDown = e => {
       if (e.key === 'Escape') {
         setShowTooltip(false);
+        tooltipTriggerButton.current.focus();
       }
     };
 
@@ -57,21 +72,49 @@ const Tooltip = ({ children, content }) => {
     }
   };
 
+  const closeTooltipModal = () => {
+    setShowTooltip(false);
+    tooltipTriggerButton.current.focus();
+  };
+
   return (
     <span className="tooltipTriggerContainer" ref={tooltipTriggerContainerRef}>
       <span
         tabIndex="0"
         role="button"
+        ref={tooltipTriggerButton}
         onClick={toggleTooltip}
         onKeyDown={handleTooltipTriggerKeyDown}
-        aria-expanded={showTooltip}
+        aria-haspopup="dialog"
       >
         {children}
       </span>
       {showTooltip && (
-        <div className="tooltipContainer" id="tooltip-content" role="tooltip">
-          {content}
-        </div>
+        <FocusTrap>
+          <div>
+            <div
+              className="tooltipBackgroundOverlay"
+              onClick={closeTooltipModal}
+            />
+            <div
+              className={`tooltipContainer${
+                lightBackground && ' lightBackground'
+              }${isModal && ' tooltipContainerModal'}`}
+              id="tooltip-content"
+              role="dialog"
+              aria-modal="true"
+            >
+              <button
+                className="tooltipCloseIconButton button outline"
+                aria-label="Close"
+                onClick={closeTooltipModal}
+              >
+                X
+              </button>
+              {content}
+            </div>
+          </div>
+        </FocusTrap>
       )}
     </span>
   );
@@ -81,13 +124,7 @@ const Tooltip = ({ children, content }) => {
 // Works well for mouse users to click to show or hide the tooltip
 // You can click anywhere outside the tooltip content or trigger icon to close the tooltip
 // Works well for keyboard users on Space/Enter keydown due to the use of the `tabIndex="0"`
-// Works well for screen reader users due to NOT USING the `aria-describedby` and `aria-live` attributes so all the text IS NOT read all at once
-// We use the `aria-expanded` attribute to communicate whether the tooltip is hidden or shown
+// Works well for keyboard users due to the use of the focus trap
+// Works well for screen reader users due to the use of the `aria-haspopup="dialog" attribute and the focus trap
 // We use the `role="button"` because this is a clickable button
 // You can also dismiss the tooltip by pressing the Escape key
-
-// ALTERNATIVE APPROACH:
-// One alternative to just removing the `aria-describedby` and `aria-live` attributes
-// would be to do that and also turn the tooltip content into a modal with all the
-// accompanying modal markup. You'd also need to include a Close button in the modal
-// since the long content on its own doesn't have anything focusable or interactive in it.
