@@ -29,7 +29,12 @@ export const InteractiveContentGood = () => {
   return (
     <div>
       Here's a sentence that may need some clarification.{' '}
-      <Tooltip content={tooltipContent} lightBackground isModal>
+      <Tooltip
+        ariaLabel="Learn More About Tooltips"
+        content={tooltipContent}
+        isModal
+        lightBackground
+      >
         <img src={QuestionMarkIcon} height="12" width="12" alt="Help" />
       </Tooltip>
     </div>
@@ -37,6 +42,7 @@ export const InteractiveContentGood = () => {
 };
 
 const Tooltip = ({
+  ariaLabel,
   children,
   content,
   isModal = false,
@@ -94,6 +100,7 @@ const Tooltip = ({
               id="tooltip-content"
               role="dialog"
               aria-modal="true"
+              aria-label={ariaLabel}
               onKeyDown={closeTooltipModalOnEscapeKeyDown}
             >
               <button
@@ -117,6 +124,6 @@ const Tooltip = ({
 // You can click anywhere outside the tooltip content or trigger icon to close the tooltip
 // Works well for keyboard users on Space/Enter keydown due to the use of the `tabIndex="0"`
 // Works well for keyboard users due to the use of the focus trap
-// Works well for screen reader users due to the use of the `aria-haspopup="dialog" attribute and the focus trap
+// Works well for screen reader users due to the modal markup and focus trap
 // We use the `role="button"` because this is a clickable button
 // You can also dismiss the tooltip by pressing the Escape key
